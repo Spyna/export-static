@@ -3,6 +3,11 @@
 
 >  Export a single page application as a static website. AKA *Server Side Rendering* without a server
 
+[![CodeFactor](https://www.codefactor.io/repository/github/spyna/export-static/badge)](https://www.codefactor.io/repository/github/spyna/export-static)
+[![codecov](https://codecov.io/gh/Spyna/export-static/branch/master/graph/badge.svg)](https://codecov.io/gh/Spyna/export-static)
+
+
+
 ## Install
 
 ### using *yarn*
@@ -136,7 +141,7 @@ const defaultConfig = {
 |browser.headless|boolean|if `false` yoou'll see the browser, otherwise it will be headless|`true`|
 
 
-##Caveat
+## Caveat
 
 ### Indexing and SEO 
 
@@ -151,6 +156,17 @@ If the *Router* matches `/about` *(without the trailing slash)* the users could 
 
 * *Not found* (`404`) if your router does not match the route. 
 * *Redirect* (`301` or `302`) if your router is smart enough to understand the situation. Which is better of a `404` but,as far as I know, not really SEO friendly. 
+
+
+### CSS files 
+
+Avoid inline *<style>*, because each page you export will have the same inline CSSs. Try to put your styles in external CSS files.
+
+### <script> usage
+
+Since the page is already rendered try to use `async` or `defer` on your *<script>* tags.
+
+
 
 
 ## Developing
