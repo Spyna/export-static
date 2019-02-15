@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:latest-browsers
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
@@ -23,7 +23,7 @@ jobs:
           command: yarn build
   deploy:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:latest-browsers
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
@@ -31,6 +31,12 @@ jobs:
       - run:
           name: Setup Dependencies
           command: yarn install
+      - run:
+          name: Test project
+          command: yarn test
+      - run:
+          name: Build project
+          command: yarn build
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
           paths:

@@ -9,7 +9,8 @@ module.exports = class Crawler {
 
   async open() {
     this.browser = await puppeteer.launch({
-      headless: this.browserConfig.headless
+      headless: this.browserConfig.headless,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
       // ,slowMo: 500
       // ,devtools: true
     })
