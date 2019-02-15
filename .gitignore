@@ -1,0 +1,10 @@
+node_modules
+.vscode
+export
+example/node_modules
+example/build
+example/export
+dist
+coverage
+*.lock
+*.log
