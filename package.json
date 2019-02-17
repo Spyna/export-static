@@ -1,6 +1,6 @@
 {
   "name": "export-static",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Export you Single Page Application as a static website. Server Side Rendering without a server",
   "author": "Spyna (https://github.com/Spyna)",
   "keyword": [
