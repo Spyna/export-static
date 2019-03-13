@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
 import Home from './views/Home';
 import About from './views/About';
 import Contacts from './views/Contacts';
-import BlogPost from './views/BlogPost';
-import ANestedBlogPost from './views/ANestedBlogPost';
+import Blog from './views/blog/Blog';
+import ANestedBlogPost from './views/blog/ANestedBlogPost';
 import AVeryNestedPage from './views/AVeryNestedPage';
+import BlogPost from './views/blog/BlogPost'
 
 class App extends Component {
   render() {
@@ -22,6 +23,9 @@ class App extends Component {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
+                  <Link to="/blog">Blog</Link>
+                </li>
+                <li>
                   <Link to="/about/">About</Link>
                 </li>
                 <li>
@@ -31,7 +35,7 @@ class App extends Component {
                   <Link to="/blog-post.html">blog-post.html</Link>
                 </li>
                 <li>
-                  <Link to="/blog/blog-post.html">/blog/blog-post.html</Link>
+                  <Link to="/blog/blog-post.html">Another blog post</Link>
                 </li>
                 <li>
                   <Link to="/a/very/nested/page.html">A Very Nested Page</Link>
@@ -41,6 +45,7 @@ class App extends Component {
           </header>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/Blog" component={Blog} />
             <Route path="/about/" component={About} />
             <Route path="/contact/" component={Contacts} />
             <Route path="/blog-post.html" component={BlogPost} />
